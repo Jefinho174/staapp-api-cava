@@ -27,5 +27,11 @@ namespace StaminaApp.Core.Commands
         public bool Success { get; set; }
         public string Message { get; set; }
         public List<string> Notificacoes { get; set; }
+
+        public void AddNotificacoes(string message){
+            if(Notificacoes == null)
+                Notificacoes = new List<string>();
+            Notificacoes.Add(message);
+        }
     }
 }
