@@ -18,7 +18,7 @@ namespace StaminaApp.Domain.ObjetoValores
 
             AddNotifications(new Contract()
                 .Requires()
-                .IsLowerOrEqualsThan(Numero,0,"Endereco.Numero","Numero deve ser maior que zero.")
+                .IsGreaterOrEqualsThan(Numero,0,"Endereco.Numero","Numero deve ser maior que zero.")
                 .HasMaxLen(Rua,100,"Endereco.Rua","Rua deve conter até 100 caracteres")
                 .HasMaxLen(Bairro,100,"Endereco.Bairro","Bairro deve conter até 100 caracteres")
                 .HasMaxLen(Cidade,50,"Endereco.Cidade","Cidade deve conter até 50 caracteres")

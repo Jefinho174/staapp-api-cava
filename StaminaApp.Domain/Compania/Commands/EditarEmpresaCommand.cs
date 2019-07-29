@@ -5,8 +5,9 @@ using StaminaApp.Core.Commands;
 
 namespace StaminaApp.Domain.Compania.Commands
 {
-    public class CadastrarEmpresaCommand : Notifiable, IRequest<ICommandResult>
+    public class EditarEmpresaCommand : Notifiable, IRequest<ICommandResult>
     {
+        public int Id { get; set; }
         public string RazaoSocial { get; set; }
         public string Cnpj { get; set; }
         public string InscricaoEstadual { get; set; }
@@ -19,11 +20,11 @@ namespace StaminaApp.Domain.Compania.Commands
         public string Pais { get; set; }
         public string CodigoPostal { get; set; }
         public string Complemento { get; set; }
-        
         public void Validate()
         {
-             AddNotifications(new Contract()
+            AddNotifications(new Contract()
                 .Requires()
+                .IsGreaterOrEqualsThan(Id, 0, "Id", "Id Inválido.")
                 .HasMinLen(RazaoSocial, 1, "RazaoSocial", "Razao social deve conter pelo menos 1 caracteres")
                 .HasMaxLen(RazaoSocial, 100, "RazaoSocial", "Razao social deve conter até 100 caracteres")
                 .IsGreaterOrEqualsThan(Numero, 0, "Numero", "Numero deve ser maior que zero.")

@@ -10,8 +10,8 @@ namespace StaminaApp.Core.Entidades
             DataCriacao = DateTime.Now;
         }
 
-        public int Id { get; private set; }
-        public DateTime DataCriacao { get; private set; }
-        public DateTime? DataFinalizacao { get; private set; }
+        public int Id { get; set; }
+        public DateTime DataCriacao { get; set; }
+        public DateTime? DataFinalizacao { get; set; }
     }
 }
